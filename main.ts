@@ -1,9 +1,14 @@
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    let mySprite: Sprite = null
-    mySprite.vy = 0
+    if (cat.vy == 0) {
+        cat.vy = -150
+    }
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`tile0`, function (sprite, location) {
+	
+})
+let cat: Sprite = null
 scene.setBackgroundColor(9)
-let cat = sprites.create(img`
+cat = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -24,3 +29,4 @@ let cat = sprites.create(img`
 controller.moveSprite(cat, 100, 0)
 tiles.setTilemap(tilemap`level1`)
 cat.ay = 200
+scene.cameraFollowSprite(cat)
