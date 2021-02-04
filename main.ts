@@ -1,6 +1,6 @@
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (cat.vy == 0) {
-        cat.vy = -150
+        cat.vy = -200
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile0`, function (sprite, location) {
@@ -28,5 +28,5 @@ cat = sprites.create(img`
     `, SpriteKind.Player)
 controller.moveSprite(cat, 100, 0)
 tiles.setTilemap(tilemap`level1`)
-cat.ay = 200
+cat.ay = 350
 scene.cameraFollowSprite(cat)
