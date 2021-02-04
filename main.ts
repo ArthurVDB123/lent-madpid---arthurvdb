@@ -3,8 +3,11 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         cat.vy = -200
     }
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`tile4`, function (sprite, location) {
+    game.over(true, effects.confetti)
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile0`, function (sprite, location) {
-	
+    game.over(false, effects.melt)
 })
 let cat: Sprite = null
 scene.setBackgroundColor(9)
